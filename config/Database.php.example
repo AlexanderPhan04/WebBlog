@@ -7,7 +7,7 @@
 class Database
 {
     private $host = 'localhost';
-    private $dbname = 'student_manager';
+    private $dbname = 'blog_alexstudio';
     private $username = 'root';
     private $password = '';
     private $conn = null;
