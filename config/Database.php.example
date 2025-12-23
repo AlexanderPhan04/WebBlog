@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * Database Connection Class
+ * Quản lý kết nối database sử dụng Singleton pattern
+ */
+class Database
+{
+    private $host = 'localhost';
+    private $dbname = 'student_manager';
+    private $username = 'root';
+    private $password = '';
+    private $conn = null;
+    private static $instance = null;
+
+    /**
+     * Private constructor để implement Singleton pattern
+     */
+    private function __construct()
+    {
+        try {
+            $this->conn = new PDO(
+                "mysql:host={$this->host};dbname={$this->dbname};charset=utf8",
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Lỗi kết nối database: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * Lấy instance duy nhất của Database (Singleton)
+     * @return Database
+     */
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    /**
+     * Lấy connection object
+     * @return PDO
+     */
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+
+    /**
+     * Ngăn clone object
+     */
+    private function __clone() {}
+
+    /**
+     * Ngăn unserialize
+     */
+    public function __wakeup()
+    {
+        throw new Exception("Cannot unserialize singleton");
+    }
+}
