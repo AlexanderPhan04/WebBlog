@@ -3,9 +3,9 @@
     <!-- Footer -->
     <footer class="bg-dark text-white mt-5 py-4">
         <div class="container text-center">
-            <p>&copy; <?php echo date('Y'); ?> WebBlog. Xây dựng bằng PHP thuần với kiến trúc MVC & OOP.</p>
+            <p>&copy; <?php echo date('Y'); ?> WebBlog. Developed by Phan Nhật Quân.</p>
             <p>
-                <small>Hệ thống blog đơn giản với đầy đủ chức năng: Đăng ký/Đăng nhập, Quản lý bài viết, Bình luận phân cấp, Admin panel.</small>
+                <small>Made For ASM</small>
             </p>
         </div>
     </footer>
