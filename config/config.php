@@ -10,8 +10,17 @@ define('APP_PATH', dirname(__DIR__) . '/app');
 define('CONFIG_PATH', __DIR__);
 define('PUBLIC_PATH', dirname(__DIR__) . '/public');
 
-// URL
-define('BASE_URL', 'http://localhost/WebBlog/public');
+// URL - Tự động detect domain
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$baseUrl = $protocol . '://' . $host;
+
+// Xử lý path cho localhost và production
+if (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false) {
+    $baseUrl .= '/WebBlog/public';
+}
+
+define('BASE_URL', $baseUrl);
 
 // Phân trang
 define('POSTS_PER_PAGE', 10);
