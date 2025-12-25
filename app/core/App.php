@@ -47,9 +47,29 @@ class App
      */
     private function parseUrl()
     {
+        $url = '';
+
+        // Lấy URL từ query string (Apache với .htaccess)
         if (isset($_GET['url'])) {
-            return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+            $url = $_GET['url'];
         }
+        // Lấy URL từ REQUEST_URI (Nginx)
+        elseif (isset($_SERVER['REQUEST_URI'])) {
+            $uri = $_SERVER['REQUEST_URI'];
+
+            // Loại bỏ query string
+            if (($pos = strpos($uri, '?')) !== false) {
+                $uri = substr($uri, 0, $pos);
+            }
+
+            // Loại bỏ leading slash
+            $url = ltrim($uri, '/');
+        }
+
+        if (!empty($url)) {
+            return explode('/', filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
+        }
+
         return [];
     }
 }
