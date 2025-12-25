@@ -1,0 +1,134 @@
+/* Custom CSS cho WebBlog */
+
+/* Post Content Styling */
+.post-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #0d6efd;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #6c757d;
+}
+
+.post-content code {
+  background-color: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
+
+/* Comment Styling */
+.comment-item {
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.comment-item:hover {
+  background-color: #e9ecef;
+}
+
+/* Card Hover Effects */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Styling */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Pagination */
+.pagination .page-link {
+  color: #0d6efd;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+  }
+
+  .comment-item {
+    margin-left: 0 !important;
+  }
+}
+
+/* Badge styling */
+.badge {
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Alert auto-dismiss animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.alert.fade-out {
+  animation: fadeOut 1s ease-out forwards;
+}

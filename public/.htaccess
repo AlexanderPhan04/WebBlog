@@ -1,0 +1,9 @@
+# Rewrite rules cho public directory
+RewriteEngine On
+
+# Nếu file hoặc directory tồn tại, phục vụ trực tiếp
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Chuyển hướng request đến index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
