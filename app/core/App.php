@@ -14,6 +14,17 @@ class App
     {
         $url = $this->parseUrl();
 
+        // DEBUG - Xóa sau khi fix xong
+        if (isset($_GET['debug'])) {
+            echo "<pre>Parsed URL: ";
+            print_r($url);
+            echo "\nGET: ";
+            print_r($_GET);
+            echo "\nREQUEST_URI: " . ($_SERVER['REQUEST_URI'] ?? 'NOT SET');
+            echo "</pre>";
+            die();
+        }
+
         // Kiểm tra controller tồn tại
         if (isset($url[0])) {
             $controllerName = ucfirst($url[0]) . 'Controller';
