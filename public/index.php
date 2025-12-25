@@ -9,7 +9,7 @@ session_start();
 
 // Load cấu hình
 require_once '../config/config.php';
-require_once '../config/database.php';
+require_once '../config/Database.php';
 
 // Load core classes
 require_once APP_PATH . '/core/App.php';

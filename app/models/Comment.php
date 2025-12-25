@@ -86,7 +86,7 @@ class Comment extends Model
             ORDER BY c.created_at DESC
             LIMIT ? OFFSET ?
         ");
-        $stmt->execute([$perPage, $offset]);
+        $stmt->execute([(int)$perPage, (int)$offset]);
 
         return $stmt->fetchAll();
     }

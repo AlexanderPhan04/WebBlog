@@ -130,7 +130,7 @@ class Post extends Model
             ORDER BY p.created_at DESC
             LIMIT ? OFFSET ?
         ");
-        $stmt->execute([$perPage, $offset]);
+        $stmt->execute([(int)$perPage, (int)$offset]);
 
         return $stmt->fetchAll();
     }
@@ -153,7 +153,7 @@ class Post extends Model
             ORDER BY p.created_at DESC
             LIMIT ? OFFSET ?
         ");
-        $stmt->execute([$searchTerm, $searchTerm, $perPage, $offset]);
+        $stmt->execute([$searchTerm, $searchTerm, (int)$perPage, (int)$offset]);
 
         return $stmt->fetchAll();
     }
@@ -198,7 +198,7 @@ class Post extends Model
             ORDER BY p.created_at DESC
             LIMIT ? OFFSET ?
         ");
-        $stmt->execute([$userId, $perPage, $offset]);
+        $stmt->execute([$userId, (int)$perPage, (int)$offset]);
 
         return $stmt->fetchAll();
     }
